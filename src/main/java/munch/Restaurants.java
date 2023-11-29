@@ -33,23 +33,28 @@ public class Restaurants
         }
     }
 
-    public static void getRestaurantsReviewedByUser(Connection con, int userID) throws SQLException
+    public static void getRestaurantsRatedByUser(Connection con, int userID) throws SQLException
     {
         ResultSet rs;
         String rName, location;
         Statement statement = con.createStatement();
-        rs = statement.executeQuery("select r.name, r.location "
-                                    + "from Users u "
-                                    + "join Reviews rev on u.userID = rev.userID "
-                                    + "join Ratings rat on rev.ratingID = rat.ratingID "
-                                    + "join Restaurants rest on rat.restID = rest.restID"
-                                    + "where u.userID = " + userID);
-        while (rs.next())
+        String query = "select distinct r.name, r.location "
+                        + "from Restaurants r "
+                        + "join Ratings ra on r.restID = ra.restID "
+                        + "where ra.userID = ?";
+        try (PreparedStatement preparedStatement = con.prepareStatement(query))
         {
-            rName = rs.getString(1);
-            location = rs.getString(2);
-            System.out.println("Restaurant Name: " + rName);
-            System.out.println("Location: " + location);
+            preparedStatement.setInt(1, userID);
+            rs = preparedStatement.executeQuery();
+            while (rs.next())
+            {
+                rName = rs.getString(1);
+                location = rs.getString(2);
+                System.out.println("Restaurant Name: " + rName);
+                System.out.println("Location: " + location);
+            }
+
         }
+
     }
 }
