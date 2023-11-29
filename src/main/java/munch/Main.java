@@ -18,8 +18,13 @@ public class Main
             System.out.println("connected to database");
 
             DatabaseInitializer.initializeDatabase(connect);
+
+            //Testing if add[Table] methods work
             Users.addUser(connect, "test name", "test username", "test password");
             Restaurants.addRestaurant(connect, "McDonalds", "SLO");
+            Ratings.addRating(connect, 1, 4, 1);
+
+
             System.out.println("all tables created successfully");
         } catch (Exception e) {
             e.printStackTrace();
