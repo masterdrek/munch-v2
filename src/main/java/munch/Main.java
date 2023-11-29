@@ -20,10 +20,12 @@ public class Main
             DatabaseInitializer.initializeDatabase(connect);
 
             //Testing if add[Table] methods work
-            Users.addUser(connect, "test name", "test username", "test password");
-            Restaurants.addRestaurant(connect, "McDonalds", "SLO");
-            Ratings.addRating(connect, 1, 4, 1);
+            //Users.addUser(connect, "test name", "test username", "test password");
 
+            //Ratings.addRating(connect, 1, 4, 1);
+
+            Restaurants.addRestaurant(connect, "McDonalds", "SLO");
+            Restaurants.getAllRestaurants(connect);
 
             System.out.println("all tables created successfully");
         } catch (Exception e) {

@@ -63,9 +63,9 @@ public class DatabaseInitializer
     public static void initializeDatabase(Connection connect) throws SQLException
     {
         createRestaurantsTable(connect);
+        createUsersTable(connect);
         createRatingsTable(connect);
         createReviewsTable(connect);
-        createUsersTable(connect);
     }
 
 }
