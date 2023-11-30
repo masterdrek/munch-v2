@@ -29,7 +29,7 @@ public class DatabaseInitializer
         String createTable = "create table if not exists Users ("
                 + "userID integer primary key auto_increment, "
                 + "name varchar(50) not null, "
-                + "username varchar(50) not null, "
+                + "username varchar(50) not null unique, "
                 + "password varchar(50) not null"
                 + ")";
         executeUpdate(createTable, connect);
@@ -67,5 +67,15 @@ public class DatabaseInitializer
         createRatingsTable(connect);
         createReviewsTable(connect);
     }
-
+    public static void dropTables(Connection connect) throws SQLException
+    {
+        String dropTables = "drop table Reviews;";
+        executeUpdate(dropTables, connect);
+        dropTables = "drop table Ratings;";
+        executeUpdate(dropTables, connect);
+        dropTables = "drop table Users;";
+        executeUpdate(dropTables, connect);
+        dropTables = "drop table Restaurants;";
+        executeUpdate(dropTables, connect);
+    }
 }
