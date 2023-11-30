@@ -1,8 +1,5 @@
 package munch;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Reviews {
     public static void attachReviewToRating(Connection con,
@@ -11,6 +8,11 @@ public class Reviews {
                                             String review) throws SQLException
     {
         Statement statement = con.createStatement();
-        statement.executeUpdate("insert into Reviews(ratingID, restID, review) values("+ratingID+", " + restID + ", '" + review + "');");
+        String insertString = "insert into Reviews(ratingID, restID, review) values(?,?,?);";
+        PreparedStatement insertReview = con.prepareStatement(insertString);
+        insertReview.setInt(1, ratingID);
+        insertReview.setInt(2, restID);
+        insertReview.setString(3, review);
+        insertReview.executeUpdate();
     }
 }
