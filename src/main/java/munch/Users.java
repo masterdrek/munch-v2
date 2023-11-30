@@ -12,18 +12,26 @@ public class Users
         insertUser.setString(3,password);
         insertUser.executeUpdate();
     }
-    public static void checkUser(Connection con, String username, String password) throws SQLException
+
+    /* checkUser: given login info, checks if username/password correct in database, if valid, returns userID, otherwise returns failed string*/
+    public static String checkUser(Connection con, String username, String password) throws SQLException
     {
         String selectString = "select userID, name, username, password from Users where username = ?";
         PreparedStatement selectUser = con.prepareStatement(selectString);
         selectUser.setString(1, username);
         ResultSet rs = selectUser.executeQuery();
-
-        while (rs.next()) {
-            String readUsername = rs.getString("username");
-            String readPassword = rs.getString("password");
-            System.out.println("userid : " + readUsername);
-            System.out.println("username : " + readPassword);
+        rs.next();
+        String readUserID = rs.getString("userID");
+        String readPassword = rs.getString("password");
+        System.out.println("userid : " + readUserID);
+        System.out.println("password : " + readPassword);
+        if(readPassword.equals(password))
+        {
+            return readUserID;
+        }
+        else
+        {
+            return "failed login";
         }
 
     }
