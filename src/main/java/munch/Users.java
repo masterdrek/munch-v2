@@ -20,6 +20,9 @@ public class Users
         PreparedStatement selectUser = con.prepareStatement(selectString);
         selectUser.setString(1, username);
         ResultSet rs = selectUser.executeQuery();
+        if(!rs.isBeforeFirst()){
+            return "username not found";
+        }
         rs.next();
         String readUserID = rs.getString("userID");
         String readPassword = rs.getString("password");
@@ -31,7 +34,7 @@ public class Users
         }
         else
         {
-            return "failed login";
+            return "password incorrect";
         }
 
     }
