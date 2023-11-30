@@ -4,11 +4,6 @@ import java.sql.*;
 public class Restaurants
 {
 
-    public static void clearRestaurantTable(Connection con) throws SQLException
-    {
-        Statement statement = con.createStatement();
-        statement.executeUpdate("drop table Restaurants");
-    }
     public static void addRestaurant(Connection con, String name, String location) throws SQLException
     {
         Statement statement = con.createStatement();
@@ -37,7 +32,6 @@ public class Restaurants
     {
         ResultSet rs;
         String rName, location;
-        Statement statement = con.createStatement();
         String query = "select distinct r.name, r.location "
                         + "from Restaurants r "
                         + "join Ratings ra on r.restID = ra.restID "
