@@ -23,15 +23,23 @@
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="username" layoutX="272.0" layoutY="148.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="272.0" layoutY="200.0" promptText="Password" />
-            <Button fx:id="button" layoutX="313.0" layoutY="251.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="36.0" prefWidth="68.0" text="Login" />
+            <TextField fx:id="username" layoutX="272.0" layoutY="148.0" prefHeight="25.0" prefWidth="189.0" promptText="Username" />
+            <PasswordField fx:id="password" layoutX="272.0" layoutY="200.0" prefHeight="25.0" prefWidth="192.0" promptText="Password" />
+            <Button fx:id="button" layoutX="272.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="36.0" prefWidth="68.0" text="Login">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font></Button>
             <Label fx:id="wrongLogin" layoutX="313.0" layoutY="107.0" />
-            <Text layoutX="224.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Munch" wrappingWidth="151.13671875">
+            <Text layoutX="217.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Munch" wrappingWidth="151.13671875">
                <font>
                   <Font name="Yu Gothic UI Light" size="48.0" />
                </font>
             </Text>
+            <Button fx:id="createAccount" layoutX="354.0" layoutY="250.0" mnemonicParsing="false" onAction="#createAccountAction" prefHeight="37.0" prefWidth="112.0" text="Create Account">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </top>
