@@ -6,5 +6,6 @@ module com.example.demo {
 
 
     opens com.example.demo to javafx.fxml;
+    opens munch to javafx.fxml;
     exports com.example.demo;
 }

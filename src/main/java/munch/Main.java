@@ -20,7 +20,7 @@ public class Main
             DatabaseInitializer.initializeDatabase(connect);
 
             //Testing if add[Table] methods work
-            //Users.addUser(connect, "test name", "test username", "test password");
+            Users.addUser(connect, "test name", "test username", "test password");
 
             //Ratings.addRating(connect, 1, 4, 1);
 
@@ -29,7 +29,7 @@ public class Main
             Restaurants.getRestaurantsRatedByUser(connect, 1);
 
             System.out.println("all tables created successfully");
-            DatabaseInitializer.dropTables(connect);
+            //DatabaseInitializer.dropTables(connect);
         } catch (Exception e) {
             e.printStackTrace();
         }
