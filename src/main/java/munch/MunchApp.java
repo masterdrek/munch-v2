@@ -20,7 +20,7 @@ public class MunchApp extends Application
     public void start(Stage primaryStage) throws IOException, SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connect = DriverManager.getConnection("jdbc:mysql://ambari-node5.csc.calpoly.edu:3306/cs365munch?user=cs365munch&password=cs365munchpass");
-        LoginController.setConnection(connect);
+        SceneController.setStage(primaryStage);
         Parent root = FXMLLoader.load(MunchApp.class.getResource("login.fxml"));
         primaryStage.setTitle("Munch");
         primaryStage.setScene(new Scene(root, 600, 400));

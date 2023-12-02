@@ -14,12 +14,20 @@ public class SceneController
    private static Scene scene;
    private Parent root;
 
-
+   public static void setStage(Stage s)
+   {
+       stage = s;
+   }
    public static void switchToHome(ActionEvent event) throws IOException {
        Parent root = FXMLLoader.load(MunchApp.class.getResource("homepage.fxml"));
-       stage = (Stage)((Node)event.getSource()).getScene().getWindow();
        scene = new Scene(root);
        stage.setScene(scene);
        stage.show();
    }
+    public static void switchToLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MunchApp.class.getResource("login.fxml"));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

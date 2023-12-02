@@ -26,13 +26,7 @@ public class LoginController {
     private PasswordField password;
 
     private String userID;
-    private static Connection connect;
 
-
-    public static void setConnection(Connection connection)
-    {
-        connect = connection;
-    }
 
     public void loginButtonAction(ActionEvent actionEvent) throws SQLException, IOException {
         String uname = username.getText();
@@ -40,7 +34,7 @@ public class LoginController {
 
         System.out.println(uname);
         System.out.println(pword);
-        String check = Users.checkUser(connect, uname, pword);
+        String check = Users.checkUser(MunchApp.connect, uname, pword);
 
         if (!check.equals("password incorrect") && !check.equals("username not found")) {
             userID = check;
@@ -59,7 +53,7 @@ public class LoginController {
         System.out.println(uname);
         System.out.println(pword);
 
-        Users.addUser(connect, "", uname, pword);
+        Users.addUser(MunchApp.connect, "", uname, pword);
 
     }
 }
