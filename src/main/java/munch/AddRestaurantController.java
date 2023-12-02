@@ -14,21 +14,13 @@ public class AddRestaurantController {
     @FXML
     private TextField restaurantAddress;
 
-    private static Connection connect;
-
-    public static void setConnection(Connection connection)
-    {
-        connect = connection;
-    }
-
     public void createRestaurantAction(ActionEvent actionEvent) throws SQLException, IOException {
         String name = restaurantName.getText();
         String address = restaurantAddress.getText();
-
         System.out.println(name);
         System.out.println(address);
 
-        Restaurants.addRestaurant(connect, name, address);
+        Restaurants.addRestaurant(MunchApp.connect, name, address);
         SceneController.switchToHome(actionEvent);
 
     }
