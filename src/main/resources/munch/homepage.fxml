@@ -17,7 +17,7 @@
                   <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#logOutAction" text="Log Out" />
               </items>
             </MenuButton>
-            <TextField layoutX="44.0" layoutY="7.0" prefHeight="28.0" prefWidth="428.0" promptText="Search for a Restaurant" style="-fx-background-color: #ffff;" />
+            <TextField fx:id="restaurantName" layoutX="44.0" layoutY="7.0" onAction="#searchRestaurantAction" prefHeight="28.0" prefWidth="428.0" promptText="Search for a Restaurant" style="-fx-background-color: #ffff;" />
             <Button fx:id="addRestaurant" layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#addRestaurantAction" text="+" />
          </children>
       </AnchorPane>

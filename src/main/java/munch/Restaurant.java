@@ -11,4 +11,5 @@ public class Restaurant
         this.name = name;
         this.location = location;
     }
+
 }

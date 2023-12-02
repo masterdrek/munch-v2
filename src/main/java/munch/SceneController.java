@@ -43,4 +43,10 @@ public class SceneController
         stage.setScene(scene);
         stage.show();
     }
+    public static void switchToRestaurant(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(MunchApp.class.getResource("Restaurant.fxml"));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
  }

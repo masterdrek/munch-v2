@@ -31,6 +31,19 @@ public class Restaurants
             System.out.println("Location: " + location);
         }
     }
+    public static Restaurant getRestaurantInfo(String restaurantName) throws SQLException {
+        Connection con = MunchApp.connect;
+        String selectString = "select restID, name, location from Restaurants where name = ?";
+        PreparedStatement selectRestaurant = con.prepareStatement(selectString);
+        selectRestaurant.setString(1, restaurantName);
+        ResultSet rs = selectRestaurant.executeQuery();
+        if(!rs.isBeforeFirst()){
+            return null;
+        }
+        rs.next();
+        Restaurant restaurant = new Restaurant(rs.getInt("restID"), rs.getString("name"), rs.getString("location"));
+        return restaurant;
+    }
 
     public static void getRestaurantsRatedByUser(Connection con, int userID) throws SQLException
     {
