@@ -12,7 +12,20 @@ public class Users
         insertUser.setString(3,password);
         insertUser.executeUpdate();
     }
-
+    public static User getUserInfo() throws SQLException {
+        Connection con = MunchApp.connect;
+        int userID = MunchApp.currentUserID;
+        String selectString = "select userID, name, username, password from Users where userID = ?";
+        PreparedStatement selectUser = con.prepareStatement(selectString);
+        selectUser.setInt(1, userID);
+        ResultSet rs = selectUser.executeQuery();
+        if(!rs.isBeforeFirst()){
+            return null;
+        }
+        rs.next();
+        User user = new User(userID, rs.getString("name"), rs.getString("username"), rs.getString("password"));
+        return user;
+    }
     /* checkUser: given login info, checks if username/password correct in database, if valid, returns userID, otherwise returns failed string*/
     public static String checkUser(Connection con, String username, String password) throws SQLException
     {
