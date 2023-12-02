@@ -12,4 +12,9 @@ public class Rating {
         this.rating = rating;
         this.userID = userID;
     }
+
+    public int getRating()
+    {
+        return rating;
+    }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
@@ -8,5 +9,6 @@
    <children>
       <Text fx:id="restaurantName" layoutX="288.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Button layoutX="273.0" layoutY="301.0" mnemonicParsing="false" onAction="#backButtonAction" text="back" />
+      <ListView fx:id="RestaurantListView" layoutX="194.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

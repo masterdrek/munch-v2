@@ -10,4 +10,9 @@ public class Review {
         this.restID = restID;
         this.review = review;
     }
+
+    public String getReview()
+    {
+        return review;
+    }
 }
