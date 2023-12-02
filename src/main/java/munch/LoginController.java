@@ -25,7 +25,6 @@ public class LoginController {
     @FXML
     private PasswordField password;
 
-    private String userID;
 
 
     public void loginButtonAction(ActionEvent actionEvent) throws SQLException, IOException {
@@ -37,8 +36,8 @@ public class LoginController {
         String check = Users.checkUser(MunchApp.connect, uname, pword);
 
         if (!check.equals("password incorrect") && !check.equals("username not found")) {
-            userID = check;
             //Switched to home page if login is successful
+            MunchApp.currentUserID = Integer.parseInt(check);
             SceneController.switchToHome(actionEvent);
 
         } else {

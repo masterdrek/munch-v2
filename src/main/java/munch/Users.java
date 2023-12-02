@@ -24,13 +24,13 @@ public class Users
             return "username not found";
         }
         rs.next();
-        String readUserID = rs.getString("userID");
+        int readUserID = rs.getInt("userID");
         String readPassword = rs.getString("password");
         System.out.println("userid : " + readUserID);
         System.out.println("password : " + readPassword);
         if(readPassword.equals(password))
         {
-            return readUserID;
+            return Integer.toString(readUserID);
         }
         else
         {

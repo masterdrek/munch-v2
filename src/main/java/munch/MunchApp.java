@@ -16,8 +16,12 @@ import java.sql.*;
 public class MunchApp extends Application
 {
     static Connection connect;
+    static int currentUserID;
+    static int currentRestID;
     @Override
     public void start(Stage primaryStage) throws IOException, SQLException, ClassNotFoundException {
+        currentUserID = -1;
+        currentRestID = -1;
         Class.forName("com.mysql.cj.jdbc.Driver");
         connect = DriverManager.getConnection("jdbc:mysql://ambari-node5.csc.calpoly.edu:3306/cs365munch?user=cs365munch&password=cs365munchpass");
         SceneController.setStage(primaryStage);
