@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public class HomePageController
 {
-    public void profileAction(ActionEvent actionEvent)
-    {
+    public void profileAction(ActionEvent actionEvent) throws IOException {
         //Switch to profileScene
+        SceneController.switchToProfile(actionEvent);
     }
 
     public void logOutAction(ActionEvent actionEvent) throws IOException {
