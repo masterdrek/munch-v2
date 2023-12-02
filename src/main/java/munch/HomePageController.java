@@ -18,4 +18,8 @@ public class HomePageController
         SceneController.switchToLogin(actionEvent);
 
     }
+
+    public void addRestaurantAction(ActionEvent actionEvent) throws  IOException {
+        SceneController.switchToAddRestaurant(actionEvent);
+    }
 }
