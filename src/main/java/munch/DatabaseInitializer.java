@@ -18,7 +18,7 @@ public class DatabaseInitializer
         String createTable = "create table if not exists Restaurants ("
                 + "restID integer primary key auto_increment, "
                 + "name varchar(50) not null, "
-                + "location varchar(50) not null"
+                + "location varchar(100) not null"
                 + ")";
         executeUpdate(createTable, connect);
     }
