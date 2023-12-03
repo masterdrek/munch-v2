@@ -28,7 +28,7 @@ public class RestaurantController implements Initializable {
     ListView<Pair<Rating, Review>> RestaurantListView;
 
     public void setListView() throws SQLException {
-        restaurantName.setText(Integer.toString(MunchApp.currentRestID));
+        restaurantName.setText(Restaurants.getRestaurantInfo(MunchApp.currentRestID).name);
 
         // Call the method to get ratings and reviews
         List<Pair<Rating, Review>> ratingsAndReviews = Ratings.getRatingsAndReviewsForRestaurant(MunchApp.connect,MunchApp.currentRestID);
@@ -41,9 +41,9 @@ public class RestaurantController implements Initializable {
             count++;
         }
         if(count != 0){
-            averageRating.setText(Double.toString(((double)sum)/count));
+            averageRating.setText("Average Rating: " +Double.toString(((double)sum)/count));
         }else{
-            averageRating.setText("0");
+            averageRating.setText("no ratings yet");
         }
 
         // Convert the list to an ObservableList for the ListView

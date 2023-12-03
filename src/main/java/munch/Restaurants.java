@@ -44,7 +44,19 @@ public class Restaurants
         Restaurant restaurant = new Restaurant(rs.getInt("restID"), rs.getString("name"), rs.getString("location"));
         return restaurant;
     }
-
+    public static Restaurant getRestaurantInfo(int restID) throws SQLException {
+        Connection con = MunchApp.connect;
+        String selectString = "select restID, name, location from Restaurants where restID = ?";
+        PreparedStatement selectRestaurant = con.prepareStatement(selectString);
+        selectRestaurant.setInt(1, restID);
+        ResultSet rs = selectRestaurant.executeQuery();
+        if(!rs.isBeforeFirst()){
+            return null;
+        }
+        rs.next();
+        Restaurant restaurant = new Restaurant(rs.getInt("restID"), rs.getString("name"), rs.getString("location"));
+        return restaurant;
+    }
 
 
 }
