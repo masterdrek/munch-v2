@@ -4,13 +4,15 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="munch.AddRatingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dbe4cf;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="munch.AddRatingController">
    <children>
-      <Text layoutX="176.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Rating and Review">
+      <Text layoutX="176.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Rating and Review">
          <font>
             <Font size="24.0" />
          </font>
@@ -33,5 +35,10 @@
       <TextField fx:id="review" layoutX="216.0" layoutY="209.0" promptText="Review (optional)" />
       <Button layoutX="300.0" layoutY="246.0" mnemonicParsing="false" onAction="#createRatingAction" text="done" />
       <Button layoutX="222.0" layoutY="246.0" mnemonicParsing="false" onAction="#backAction" text="back" />
+      <ImageView fitHeight="46.0" fitWidth="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
