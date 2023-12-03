@@ -66,4 +66,44 @@ public class Ratings
         }
         return ratingsAndReviews;
     }
+
+    public static List<Pair<Rating, Review>> getRatingsAndReviewsForUser(Connection con, int userID) throws SQLException
+    {
+        String selectRatings = "select ratingID, restID, rating, userID from Ratings where userID = ?";
+        PreparedStatement statement = con.prepareStatement(selectRatings);
+        statement.setInt(1, userID);
+        ResultSet rs = statement.executeQuery();
+
+        List<Pair<Rating, Review>> ratingsAndReviews = new ArrayList<>();
+        while (rs.next())
+        {
+            String selectReviews = "select ratingID, restID, review from Reviews where ratingID = ?";
+            PreparedStatement statement2 = con.prepareStatement(selectReviews);
+            statement2.setInt(1, rs.getInt("ratingID"));
+            ResultSet rs2 = statement2.executeQuery();
+            Rating rating = new Rating(rs.getInt("ratingID"),
+                    rs.getInt("restID"),
+                    rs.getInt("rating"),
+                    rs.getInt("userID"));
+            Review review = null;
+
+            if(rs2.isBeforeFirst())
+            {
+
+                if (rs2.next()) {
+                    System.out.println(rs2.getString("review"));
+                    review = new Review(
+                            rs2.getInt("ratingID"),
+                            rs2.getInt("restID"),
+                            rs2.getString("review")
+                    );
+                } else {
+                    System.out.println("No reviews found.");
+                }
+                Pair<Rating, Review> entry = new Pair<>(rating,review);
+                ratingsAndReviews.add(entry);
+            }
+        }
+        return ratingsAndReviews;
+    }
 }
