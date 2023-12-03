@@ -11,10 +11,20 @@ import java.util.Map;
 public class Ratings
 {
 
-    public static void addRating(Connection con, int restID, int rating, int userID) throws SQLException
+    public static int addRating(Connection con, int restID, int rating, int userID) throws SQLException
     {
         Statement statement = con.createStatement();
         statement.executeUpdate("insert into Ratings(restID, rating, userID) values ("+restID+ "," + rating + "," + userID + ");");
+        String selectRatingIdString = "select ratingID from Ratings where restID = ? and userID = ?";
+        PreparedStatement selectRatingId = con.prepareStatement(selectRatingIdString);
+        selectRatingId.setInt(1, restID);
+        selectRatingId.setInt(2,userID);
+        ResultSet rs = selectRatingId.executeQuery();
+        if(rs.isBeforeFirst()){
+            rs.next();
+            return rs.getInt("ratingID");
+        }
+        return -1;
     }
 
     public static List<Pair<Rating, Review>> getRatingsAndReviewsForRestaurant(Connection con, int restID) throws  SQLException

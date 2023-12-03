@@ -22,7 +22,8 @@ import java.util.Set;
 public class RestaurantController implements Initializable {
     @FXML
     Text restaurantName;
-
+    @FXML
+    Text averageRating;
     @FXML
     ListView<Pair<Rating, Review>> RestaurantListView;
 
@@ -30,7 +31,20 @@ public class RestaurantController implements Initializable {
         restaurantName.setText(Integer.toString(MunchApp.currentRestID));
 
         // Call the method to get ratings and reviews
-        List<Pair<Rating, Review>> ratingsAndReviews = Ratings.getRatingsAndReviewsForRestaurant(MunchApp.connect, MunchApp.currentRestID);
+        List<Pair<Rating, Review>> ratingsAndReviews = Ratings.getRatingsAndReviewsForRestaurant(MunchApp.connect,MunchApp.currentRestID);
+
+        //compute average rating
+        int sum = 0;
+        int count = 0;
+        for(Pair<Rating, Review> rating : ratingsAndReviews){
+            sum += rating.getKey().rating;
+            count++;
+        }
+        if(count != 0){
+            averageRating.setText(Double.toString(((double)sum)/count));
+        }else{
+            averageRating.setText("0");
+        }
 
         // Convert the list to an ObservableList for the ListView
         ObservableList<Pair<Rating, Review>> items = FXCollections.observableArrayList(ratingsAndReviews);
@@ -46,7 +60,7 @@ public class RestaurantController implements Initializable {
                         if (empty || item == null) {
                             setText(null);
                         } else {
-                            setText("Rating: " + item.getKey().getRating() + ", Review: " + item.getValue().getReview());
+                            setText("Rating: " + item.getKey().getRating() + (item.getValue() != null?", Review: " + item.getValue().getReview():""));
                         }
                     }
                 };
@@ -59,6 +73,9 @@ public class RestaurantController implements Initializable {
     public void backButtonAction(ActionEvent actionEvent) throws SQLException, IOException {
         SceneController.switchToHome(actionEvent);
         MunchApp.currentRestID = -1;
+    }
+    public void AddReviewAction(ActionEvent actionEvent) throws SQLException, IOException {
+        SceneController.switchToAddReview(actionEvent);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

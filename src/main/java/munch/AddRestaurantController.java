@@ -24,4 +24,7 @@ public class AddRestaurantController {
         SceneController.switchToHome(actionEvent);
 
     }
+    public void backAction(ActionEvent actionEvent) throws IOException {
+        SceneController.switchToHome(actionEvent);
+    }
 }

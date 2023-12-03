@@ -17,7 +17,7 @@ public class DatabaseInitializer
     {
         String createTable = "create table if not exists Restaurants ("
                 + "restID integer primary key auto_increment, "
-                + "name varchar(50) not null, "
+                + "name varchar(50) not null unique, "
                 + "location varchar(100) not null"
                 + ")";
         executeUpdate(createTable, connect);
@@ -43,7 +43,8 @@ public class DatabaseInitializer
                 + "rating integer not null, "
                 + "userID integer, "
                 + "foreign key(userID) references Users(userID), "
-                + "foreign key(restID) references Restaurants(restID)"
+                + "foreign key(restID) references Restaurants(restID),"
+                + "UNIQUE KEY unique_combination (restID, userID)"
                 + ")";
         executeUpdate(createTable, connect);
     }

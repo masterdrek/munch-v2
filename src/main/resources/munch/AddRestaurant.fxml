@@ -13,8 +13,9 @@
             <Font name="Palatino Bold" size="40.0" />
          </font>
       </Text>
-      <Button layoutX="273.0" layoutY="216.0" mnemonicParsing="false" onAction="#createRestaurantAction" text="Add" />
+      <Button layoutX="314.0" layoutY="213.0" mnemonicParsing="false" onAction="#createRestaurantAction" text="Add" />
       <TextField fx:id="restaurantName" layoutX="213.0" layoutY="142.0" promptText="Name" />
       <TextField fx:id="restaurantAddress" layoutX="213.0" layoutY="175.0" promptText="Address" />
+      <Button layoutX="213.0" layoutY="213.0" mnemonicParsing="false" onAction="#backAction" text="back" />
    </children>
 </AnchorPane>
