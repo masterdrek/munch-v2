@@ -2,6 +2,7 @@ package munch;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -12,6 +13,8 @@ public class HomePageController
 {
     @FXML
     TextField restaurantName;
+    @FXML
+    Label wrongSearch;
     public void profileAction(ActionEvent actionEvent) throws IOException {
         //Switch to profileScene
         SceneController.switchToProfile(actionEvent);
@@ -35,8 +38,10 @@ public class HomePageController
         if(restaurant != null) {
             MunchApp.currentRestID = restaurant.restID;
             SceneController.switchToRestaurant(actionEvent);
+            wrongSearch.setText("");
         }else {
             System.out.println("couldnt find restaurant");
+            wrongSearch.setText("Couldn't find restaurant. Please try again or use the add restaurant button!");
         }
     }
 }

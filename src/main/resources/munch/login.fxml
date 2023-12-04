@@ -40,7 +40,7 @@
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Label fx:id="wrongLogIn" layoutX="272.0" layoutY="129.0" prefHeight="17.0" prefWidth="312.0" textFill="RED" wrapText="true" />
+            <Label fx:id="wrongLogIn" layoutX="272.0" layoutY="123.0" prefHeight="17.0" prefWidth="312.0" textFill="RED" wrapText="true" />
          </children>
       </AnchorPane>
    </top>
