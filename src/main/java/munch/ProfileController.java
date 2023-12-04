@@ -73,7 +73,7 @@ public class ProfileController implements Initializable {
 
         try {
             User user = Users.getUserInfo();
-            username.setText(user.username);
+            username.setText(user.username + "'s ratings");
             setListView();
         } catch (SQLException e) {
             throw new RuntimeException(e);

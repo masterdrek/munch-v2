@@ -5,11 +5,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #87ceeb;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="munch.ProfileController">
    <children>
-      <Text fx:id="username" layoutX="295.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="username" layoutX="130.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="353.5302734375">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
       <Button fx:id="backButton" layoutX="285.0" layoutY="312.0" mnemonicParsing="false" onAction="#backButtonAction" text="back" />
       <ListView fx:id="ProfileListView" layoutX="207.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
       <ImageView fitHeight="46.0" fitWidth="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
