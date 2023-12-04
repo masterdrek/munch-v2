@@ -39,9 +39,12 @@ public class LoginController {
             //Switched to home page if login is successful
             MunchApp.currentUserID = Integer.parseInt(check);
             SceneController.switchToHome(actionEvent);
+            wrongLogIn.setText("");
 
+        } else if (uname.isEmpty() && pword.isEmpty()) {
+            wrongLogIn.setText("Please enter your data");
         } else {
-            System.out.println("Login Failed");
+            wrongLogIn.setText("Username or Password Incorrect: Please try again");
         }
     }
 
