@@ -46,7 +46,13 @@ public class ProfileController implements Initializable {
                         if (empty || item == null) {
                             setText(null);
                         } else {
-                            setText("Rating: " + item.getKey().getRating() + (item.getValue() != null?", Review: " + item.getValue().getReview():""));
+                            Restaurant r = null;
+                            try {
+                                r = Restaurants.getRestaurantInfo(item.getKey().restID);
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            }
+                            setText(r.name + ", Rating: " + item.getKey().getRating() + (item.getValue() != null?", Review: " + item.getValue().getReview():""));
                         }
                     }
                 };
