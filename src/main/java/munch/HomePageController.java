@@ -2,6 +2,7 @@ package munch;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -15,6 +16,9 @@ public class HomePageController
     TextField restaurantName;
     @FXML
     Label wrongSearch;
+
+    @FXML
+    Button findBest;
     public void profileAction(ActionEvent actionEvent) throws IOException {
         //Switch to profileScene
         SceneController.switchToProfile(actionEvent);
@@ -43,5 +47,11 @@ public class HomePageController
             System.out.println("couldnt find restaurant");
             wrongSearch.setText("Couldn't find restaurant. Please try again or use the add restaurant button!");
         }
+    }
+
+    public void findBestRestaurants(ActionEvent actionEvent) throws IOException, SQLException
+    {
+        System.out.println("Finding top 10 restaurants");
+        SceneController.switchToBestRestaurants(actionEvent);
     }
 }

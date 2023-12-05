@@ -106,4 +106,20 @@ public class Ratings
         }
         return ratingsAndReviews;
     }
+
+
+    public static ResultSet getBestRestaurants(Connection con) throws SQLException {
+
+        String query =
+                "select r.name, r.location, avg(ra.rating) as avg_rating " +
+                        "from Restaurants r " +
+                        "join Ratings ra on ra.restID = r.restID " +
+                        "group by r.name, r.location " +
+                        "order by avg_rating DESC " +
+                        "limit 10";
+        Statement statement = con.createStatement();
+        return statement.executeQuery(query);
+
+
+    }
 }
