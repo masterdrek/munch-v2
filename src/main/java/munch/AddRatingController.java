@@ -2,6 +2,7 @@ package munch;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -9,6 +10,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class AddRatingController {
     @FXML
@@ -28,6 +30,9 @@ public class AddRatingController {
     private MenuButton selectedRating;
     @FXML
     private TextField review;
+
+    @FXML
+    private Label reviewError;
 
     public void selectRating0Action(ActionEvent actionEvent){
         System.out.println("rating: " + rating0.getText());
@@ -53,15 +58,23 @@ public class AddRatingController {
         System.out.println("rating: " + rating5.getText());
         selectedRating.setText("5");
     }
-    public void createRatingAction(ActionEvent actionEvent) throws SQLException, IOException {
-        if(!selectedRating.getText().equals("")){
-            int ratingID = Ratings.addRating(MunchApp.connect, MunchApp.currentRestID,Integer.parseInt(selectedRating.getText()), MunchApp.currentUserID);
-            if(!review.getText().equals("")){
-                Reviews.attachReviewToRating(MunchApp.connect, ratingID, MunchApp.currentRestID, review.getText());
+    public void createRatingAction(ActionEvent actionEvent) throws IOException {
+        try {
+            if (!selectedRating.getText().equals("")) {
+                int ratingID = Ratings.addRating(MunchApp.connect, MunchApp.currentRestID, Integer.parseInt(selectedRating.getText()), MunchApp.currentUserID);
+                if (!review.getText().equals("")) {
+                    Reviews.attachReviewToRating(MunchApp.connect, ratingID, MunchApp.currentRestID, review.getText());
+                }
+
+                SceneController.switchToRestaurant(actionEvent);
             }
-            SceneController.switchToRestaurant(actionEvent);
+        } catch (SQLIntegrityConstraintViolationException e) {
+            reviewError.setText("You have already entered a review for this Restaurant");
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
         }
     }
+
     public void backAction(ActionEvent actionEvent) throws IOException {
         SceneController.switchToRestaurant(actionEvent);
     }
