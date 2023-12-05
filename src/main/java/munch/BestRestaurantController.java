@@ -40,6 +40,10 @@ public class BestRestaurantController implements Initializable
         }
         bestRestaurants.setItems(restaurantItems);
     }
+
+    public void backAction(ActionEvent actionEvent) throws IOException {
+        SceneController.switchToHome(actionEvent);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
