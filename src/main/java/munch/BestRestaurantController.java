@@ -18,6 +18,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class BestRestaurantController implements Initializable
@@ -54,7 +55,7 @@ public class BestRestaurantController implements Initializable
 
                 String restaurantName = selectedRestaurant.split(" - ")[0];
                 Restaurant restaurant = Restaurants.getRestaurantInfo(restaurantName);
-                MunchApp.currentRestID = restaurant.restID;
+                MunchApp.currentRestID = Objects.requireNonNull(restaurant).restID;
                 try
                 {
                     ActionEvent actionEvent = new ActionEvent();
