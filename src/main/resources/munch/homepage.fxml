@@ -23,7 +23,7 @@
             </MenuButton>
             <TextField fx:id="restaurantName" layoutX="53.0" layoutY="199.0" onAction="#searchRestaurantAction" prefHeight="28.0" prefWidth="428.0" promptText="Search for a Restaurant" style="-fx-background-color: #ffff;" />
             <Button fx:id="addRestaurant" layoutX="488.0" layoutY="199.0" mnemonicParsing="false" onAction="#addRestaurantAction" text="+" />
-            <ImageView fitHeight="112.0" fitWidth="293.0" layoutX="140.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="112.0" fitWidth="293.0" layoutX="140.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
                </image>
