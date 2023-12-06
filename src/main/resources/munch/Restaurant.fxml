@@ -15,7 +15,7 @@
             <Font size="18.0" />
          </font></Text>
       <Button layoutX="273.0" layoutY="343.0" mnemonicParsing="false" onAction="#backButtonAction" text="back" />
-      <ListView fx:id="RestaurantListView" layoutX="195.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="RestaurantListView" layoutX="124.0" layoutY="100.0" prefHeight="200.0" prefWidth="353.0" />
       <Text fx:id="averageRating" layoutX="185.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="229.21630859375" />
       <Button layoutX="254.0" layoutY="306.0" mnemonicParsing="false" onAction="#AddReviewAction" text="Add Review" />
       <ImageView fitHeight="46.0" fitWidth="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
