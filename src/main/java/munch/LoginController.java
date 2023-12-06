@@ -48,7 +48,7 @@ public class LoginController {
         }
     }
 
-    public void createAccountAction(ActionEvent actionEvent) throws SQLException {
+    public void createAccountAction(ActionEvent actionEvent) throws SQLException, IOException {
         String uname = username.getText();
         String pword = password.getText();
 

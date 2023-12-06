@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.Pair;
@@ -43,6 +44,26 @@ public class BestRestaurantController implements Initializable
 
     public void backAction(ActionEvent actionEvent) throws IOException {
         SceneController.switchToHome(actionEvent);
+    }
+
+    public void listViewClick(MouseEvent mouseEvent) throws SQLException {
+        if (mouseEvent.getClickCount() == 2) {
+            String selectedRestaurant = bestRestaurants.getSelectionModel().getSelectedItem();
+            if (selectedRestaurant != null)
+            {
+
+                String restaurantName = selectedRestaurant.split(" - ")[0];
+                Restaurant restaurant = Restaurants.getRestaurantInfo(restaurantName);
+                MunchApp.currentRestID = restaurant.restID;
+                try
+                {
+                    ActionEvent actionEvent = new ActionEvent();
+                    SceneController.switchToRestaurant(actionEvent);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
