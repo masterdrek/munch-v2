@@ -28,8 +28,8 @@ public class Main
             //Restaurants.getAllRestaurants(connect);
             //Restaurants.getRestaurantsRatedByUser(connect, 1);
 
-            Ratings.addRating(connect, 5, 4, 2);
-            Reviews.attachReviewToRating(connect, 1, 5, "Very Good!");
+            //Ratings.addRating(connect, 5, 4, 2);
+            //Reviews.attachReviewToRating(connect, 1, 5, "Very Good!");
 
 
 
