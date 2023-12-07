@@ -15,7 +15,7 @@
             <Font size="24.0" />
          </font></Text>
       <Button fx:id="backButton" layoutX="285.0" layoutY="312.0" mnemonicParsing="false" onAction="#backButtonAction" text="back" />
-      <ListView fx:id="ProfileListView" layoutX="207.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="ProfileListView" layoutX="119.0" layoutY="100.0" prefHeight="200.0" prefWidth="375.0" />
       <ImageView fitHeight="46.0" fitWidth="165.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
