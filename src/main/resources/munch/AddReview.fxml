@@ -41,7 +41,7 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="reviewError" layoutX="216.0" layoutY="183.0" textFill="#f50303">
+      <Label fx:id="reviewError" layoutX="152.0" layoutY="185.0" prefHeight="15.0" prefWidth="404.0" textFill="#f50303">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
