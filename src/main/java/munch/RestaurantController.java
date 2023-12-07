@@ -41,7 +41,7 @@ public class RestaurantController implements Initializable {
             count++;
         }
         if(count != 0){
-            averageRating.setText("Average Rating: " +Double.toString(((double)sum)/count));
+            averageRating.setText(String.format("Average Rating: %.2f", ((double)sum)/count));
         }else{
             averageRating.setText("no ratings yet");
         }
